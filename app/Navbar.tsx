@@ -6,13 +6,11 @@ import classNames from "classnames";
 
 const Navbar = () => {
   return (
-    <nav className="border-b mb-5 px-5 py-3">
-      <div>
-        <Link href="/">
-          <SiGoogletasks />
-        </Link>
-        <NavLinks />
-      </div>
+    <nav className="flex space-x-8  items-center border-b mb-5 px-5 py-3">
+      <Link className="font-black size-10" href="/">
+        <SiGoogletasks />
+      </Link>
+      <NavLinks />
     </nav>
   );
 };
@@ -22,7 +20,7 @@ const NavLinks = () => {
 
   const links = [
     { label: "Dashboard", href: "/" },
-    { label: "Tasks", href: "/tasks/list" },
+    { label: "Tasks", href: "/tasks" },
   ];
   return (
     <ul className="flex space-x-6">
