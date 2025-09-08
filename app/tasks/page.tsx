@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import prisma from "@/prisma/client";
+import TaskStatusBadge from "./_components/TaskStatusBadge";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
@@ -42,11 +43,14 @@ const TasksPage = async () => {
                     className="text-blue-500 hover:text-blue-700 font-medium transition-colors duration-200"
                   >
                     {task.title}
+                    <div className="block md:hidden">
+                      <TaskStatusBadge status={task.status} />
+                    </div>
                   </Link>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                    {task.status}
+                    <TaskStatusBadge status={task.status} />
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
